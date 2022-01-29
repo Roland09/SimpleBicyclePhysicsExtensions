@@ -1,5 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <ui:Label text="Tools for Simple Bicycle Physics" />
-    <uie:ObjectField label="Bike Prefab Root" type="UnityEngine.GameObject, UnityEngine.CoreModule" name="BikePrefabRootField" />
-    <ui:Button text="Map Charactor Creator 3" display-tooltip-when-elided="true" name="MapCC3Button" />
+    <ui:VisualElement style="margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">
+        <ui:Label text="Tools for Simple Bicycle Physics" style="-unity-font-style: bold;" />
+        <ui:Label text="&#10;Drag the Character Creator 3 prefab on the Bike Prefab Root in the Hierarchy.&#10;Select the prefab and set it up using Simple Bicycle Physics menu.&#10;Drag the Bicycle (with the CC3 model as child) in the Bike Prefab Root slot.&#10;Hit the &quot;Map Character Creator 3&quot; button.&#10;The bones and targets will then be mapped to the IK gameobject data.&#10;&#10;Note: Backup your project, there&apos;s no Undo yet.&#10;" display-tooltip-when-elided="true" name="UsageLabel" style="-unity-font-style: italic;" />
+        <uie:ObjectField label="Bike Prefab Root" type="UnityEngine.GameObject, UnityEngine.CoreModule" name="BikePrefabRootField" />
+        <ui:Button text="Map Character Creator 3" display-tooltip-when-elided="true" name="MapCC3Button" />
+    </ui:VisualElement>
 </ui:UXML>
