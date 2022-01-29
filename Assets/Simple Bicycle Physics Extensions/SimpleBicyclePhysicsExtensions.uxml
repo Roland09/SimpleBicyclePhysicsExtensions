@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Label text="Tools for Simple Bicycle Physics" />
+    <uie:ObjectField label="Bike Prefab Root" type="UnityEngine.GameObject, UnityEngine.CoreModule" name="BikePrefabRootField" />
+    <ui:Button text="Map Charactor Creator 3" display-tooltip-when-elided="true" name="MapCC3Button" />
+</ui:UXML>
