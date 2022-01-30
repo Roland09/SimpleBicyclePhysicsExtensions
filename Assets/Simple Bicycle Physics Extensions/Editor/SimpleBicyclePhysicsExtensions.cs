@@ -21,7 +21,7 @@ namespace Rowlan.SimpleBicyclePhysicsExtensions
         [SerializeField]
         private VisualTreeAsset m_VisualTreeAsset = default;
 
-        [MenuItem("Window/Rowlan/Simple Bicycle Physics Extensions")]
+        [MenuItem("Window/Rowlan/Simple Bicycle Physics Extensions %t")]
         public static void ShowExample()
         {
             SimpleBicyclePhysicsExtensions wnd = GetWindow<SimpleBicyclePhysicsExtensions>();
@@ -38,10 +38,14 @@ namespace Rowlan.SimpleBicyclePhysicsExtensions
             VisualElement labelFromUXML = m_VisualTreeAsset.Instantiate();
             root.Add(labelFromUXML);
 
+            this.bikePrefabRootField = root.Q<ObjectField>("BikePrefabRootField");
+
             Button mapCC3Button = root.Q<Button>("MapCC3Button");
             mapCC3Button.clicked += MapCharacterCreator3;
 
-            this.bikePrefabRootField = root.Q<ObjectField>("BikePrefabRootField");
+            Button mapMixamoButton = root.Q<Button>("MapMixamoButton");
+            mapMixamoButton.clicked += MapMixamo;
+
 
         }
 
@@ -50,7 +54,16 @@ namespace Rowlan.SimpleBicyclePhysicsExtensions
             GameObject bikePrefabRoot = this.bikePrefabRootField.value as GameObject;
 
             CharacterCreator3Mapper mapper = new CharacterCreator3Mapper( bikePrefabRoot);
-            mapper.Apply(bikePrefabRoot);
+            mapper.Apply();
         }
+
+        private void MapMixamo()
+        {
+            GameObject bikePrefabRoot = this.bikePrefabRootField.value as GameObject;
+
+            MixamoMapper mapper = new MixamoMapper(bikePrefabRoot);
+            mapper.Apply();
+        }
+
     }
 }
