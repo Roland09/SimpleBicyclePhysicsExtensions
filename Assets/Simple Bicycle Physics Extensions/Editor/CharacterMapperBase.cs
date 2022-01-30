@@ -16,8 +16,11 @@ namespace Rowlan.SimpleBicyclePhysicsExtensions
 
             if (bikePrefab != null)
             {
-                this.character = bikePrefab.transform.GetComponentInChildren<ProceduralIKHandler>().gameObject;
-                this.bikeRig = bikePrefab.transform.GetComponentInChildren<Rig>().gameObject;
+                ProceduralIKHandler proceduralIKHandler = bikePrefab.transform.GetComponentInChildren<ProceduralIKHandler>(false);
+                this.character = proceduralIKHandler == null ? null : proceduralIKHandler.gameObject;
+
+                Rig rig = bikePrefab.transform.GetComponentInChildren<Rig>(false);
+                this.bikeRig = rig == null ? null : rig.gameObject;
             }
         }
 
@@ -68,10 +71,11 @@ namespace Rowlan.SimpleBicyclePhysicsExtensions
 
         protected Transform FindChild(GameObject parent, string name)
         {
-            Transform[] children = parent.transform.GetComponentsInChildren<Transform>();
+            Transform[] children = parent.transform.GetComponentsInChildren<Transform>( false);
 
             foreach (Transform child in children)
             {
+                // check if name matches
                 if (StringUtils.Matches(child.transform.name, name))
                     return child;
             }

@@ -51,61 +51,33 @@ namespace Rowlan.SimpleBicyclePhysicsExtensions
 
         private void MapCharacterCreator3()
         {
-            if (!ConsistencyCheck())
-                return;
-
             GameObject bikePrefabRoot = this.bikePrefabRootField.value as GameObject;
 
             CharacterCreator3Mapper mapper = new CharacterCreator3Mapper( bikePrefabRoot);
+
+            if( !mapper.ConsistencyCheck( out string error))
+            {
+                EditorUtility.DisplayDialog("Error", error, "Ok");
+                return;
+            }
+
             mapper.Apply();
         }
 
         private void MapMixamo()
         {
-            if (!ConsistencyCheck())
-                return;
-
             GameObject bikePrefabRoot = this.bikePrefabRootField.value as GameObject;
 
             MixamoMapper mapper = new MixamoMapper(bikePrefabRoot);
+
+            if (!mapper.ConsistencyCheck(out string error))
+            {
+                EditorUtility.DisplayDialog("Error", error, "Ok");
+                return;
+            }
+
             mapper.Apply();
         }
 
-        private bool ConsistencyCheck()
-        {
-            GameObject bikePrefabRoot = this.bikePrefabRootField.value as GameObject;
-
-            if (bikePrefabRoot == null)
-            {
-                EditorUtility.DisplayDialog("Error", "Please set the bike prefab root", "Ok");
-                return false;
-            }
-
-            BicycleController bicycleController = bikePrefabRoot.GetComponent<BicycleController>();
-
-            if (bicycleController == null)
-            {
-                EditorUtility.DisplayDialog("Error", "Bike prefab root must have a BicycleController", "Ok");
-                return false;
-            }
-
-            GameObject character = bikePrefabRoot.transform.GetComponentInChildren<ProceduralIKHandler>().gameObject;
-
-            if (character == null)
-            {
-                EditorUtility.DisplayDialog("Error", "Bike prefab root must have a character set up with a ProceduralIKHandler", "Ok");
-                return false;
-            }
-
-            GameObject bikeRig = bikePrefabRoot.transform.GetComponentInChildren<Rig>().gameObject;
-
-            if (bikeRig == null)
-            {
-                EditorUtility.DisplayDialog("Error", "Bike prefab root must have be set up with a Rig", "Ok");
-                return false;
-            }
-
-            return true;
-        }
     }
 }
