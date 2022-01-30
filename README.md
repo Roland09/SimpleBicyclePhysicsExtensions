@@ -17,4 +17,6 @@ Here's a usage video:
 
 Download the github project and copy it into your Assets folder.
 
+https://github.com/Roland09/SimpleBicyclePhysicsExtensions
+
 *Note: There's no installation via package manager yet since the Simple Bicycle Physics doesn't have an assembly definition (yet) wich the Extension could reference.*
