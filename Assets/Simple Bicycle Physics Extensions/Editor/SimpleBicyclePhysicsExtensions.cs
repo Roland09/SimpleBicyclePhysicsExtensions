@@ -49,8 +49,8 @@ namespace Rowlan.SimpleBicyclePhysicsExtensions
         {
             GameObject bikePrefabRoot = this.bikePrefabRootField.value as GameObject;
 
-            CharacterCreator3Mapper mapper = new CharacterCreator3Mapper();
-            mapper.MapCharacterCreator3(bikePrefabRoot);
+            CharacterCreator3Mapper mapper = new CharacterCreator3Mapper( bikePrefabRoot);
+            mapper.Apply(bikePrefabRoot);
         }
     }
 }
