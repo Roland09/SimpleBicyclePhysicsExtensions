@@ -14,8 +14,11 @@ namespace Rowlan.SimpleBicyclePhysicsExtensions
         {
             this.bikePrefab = bikePrefab;
 
-            this.character = bikePrefab.transform.GetComponentInChildren<ProceduralIKHandler>().gameObject;
-            this.bikeRig = bikePrefab.transform.GetComponentInChildren<Rig>().gameObject;
+            if (bikePrefab != null)
+            {
+                this.character = bikePrefab.transform.GetComponentInChildren<ProceduralIKHandler>().gameObject;
+                this.bikeRig = bikePrefab.transform.GetComponentInChildren<Rig>().gameObject;
+            }
         }
 
         public abstract void Apply();
@@ -69,24 +72,44 @@ namespace Rowlan.SimpleBicyclePhysicsExtensions
 
             foreach (Transform child in children)
             {
-                if (Matches(child.transform.name, name))
+                if (StringUtils.Matches(child.transform.name, name))
                     return child;
             }
 
             return null;
         }
 
-
-        private static bool Matches( string text, string pattern)
+        public bool ConsistencyCheck( out string error)
         {
-            string regex = WildCardToRegular(pattern);
-            return Regex.IsMatch(text, regex);
-        }
-        
+            if (bikePrefab == null)
+            {
+                error = "Please set the bike prefab root";
+                return false;
+            }
 
-        private static string WildCardToRegular(string value)
-        {
-            return "^" + Regex.Escape(value).Replace("\\*", ".*") + "$";
+            BicycleController bicycleController = bikePrefab.GetComponent<BicycleController>();
+
+            if (bicycleController == null)
+            {
+                error = "Bike prefab root must have a BicycleController";
+                return false;
+            }
+
+            if (character == null)
+            {
+                error = "Bike prefab root must have a character set up with a ProceduralIKHandler";
+                return false;
+            }
+
+            if (bikeRig == null)
+            {
+                error = "Bike prefab root must have be set up with a Rig";
+                return false;
+            }
+
+            error = "";
+            return true;
         }
+
     }
 }
