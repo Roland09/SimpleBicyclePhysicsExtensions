@@ -20,4 +20,4 @@ Download the github project and copy the content of the Assets folder into your 
 
 https://github.com/Roland09/SimpleBicyclePhysicsExtensions
 
-*Note: There's no installation via package manager yet since the Simple Bicycle Physics doesn't have an assembly definition (yet) wich the Extension could reference.*
+*Note: There's no installation via package manager yet since the Simple Bicycle Physics asset doesn't have an assembly definition (yet) which the Extension could reference.*
