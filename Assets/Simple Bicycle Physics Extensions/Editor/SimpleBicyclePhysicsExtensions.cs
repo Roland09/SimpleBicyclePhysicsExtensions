@@ -64,6 +64,9 @@ namespace Rowlan.SimpleBicyclePhysicsExtensions
             }
 
             mapper.Apply();
+
+            EditorUtility.DisplayDialog("Info", $"Mapping applied to {bikePrefabRoot.name}", "Ok");
+
         }
 
         private void MapCharacterCreator3GameBase()
