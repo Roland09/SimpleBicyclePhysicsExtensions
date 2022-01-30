@@ -16,7 +16,7 @@ Here's a usage video:
 
 ### Installation
 
-Download the github project and copy it into your Assets folder.
+Download the github project and copy the content of the Assets folder into your project's Assets folder.
 
 https://github.com/Roland09/SimpleBicyclePhysicsExtensions
 
