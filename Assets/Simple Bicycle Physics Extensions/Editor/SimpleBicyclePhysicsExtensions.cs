@@ -79,6 +79,9 @@ namespace Rowlan.SimpleBicyclePhysicsExtensions
             }
 
             mapper.Apply();
+
+            EditorUtility.DisplayDialog("Info", $"Mapping applied to {bikePrefabRoot.name}", "Ok");
+
         }
 
         private void MapMixamo()
@@ -94,6 +97,9 @@ namespace Rowlan.SimpleBicyclePhysicsExtensions
             }
 
             mapper.Apply();
+
+            EditorUtility.DisplayDialog("Info", $"Mapping applied to {bikePrefabRoot.name}", "Ok");
+
         }
 
     }
