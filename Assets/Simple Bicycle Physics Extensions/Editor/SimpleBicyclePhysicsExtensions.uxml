@@ -5,10 +5,11 @@
             <ui:Label text="&#10;Drag the Character Creator 3 prefab on the Bike Prefab Root in the Hierarchy.&#10;Select the prefab and set it up using Simple Bicycle Physics menu. Drag the Bicycle (with the character model as child) in the Bike Prefab Root slot.&#10;&#10;Hit the &quot;Map Character Creator 3&quot; or &quot;Map Mixamo&quot; button, depending on your character. The bones and targets will then be mapped to the IK gameobject data.&#10;&#10;Note: Backup your project, there&apos;s no Undo yet.&#10;&#10;" display-tooltip-when-elided="true" name="UsageLabel" style="-unity-font-style: italic; white-space: normal; -unity-text-outline-width: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
         </ui:GroupBox>
         <ui:GroupBox text="Setup" style="border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 3px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
-            <uie:ObjectField label="Bike Prefab Root" type="UnityEngine.GameObject, UnityEngine.CoreModule" name="BikePrefabRootField" style="padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;" />
+            <uie:ObjectField label="Bike Prefab" type="UnityEngine.GameObject, UnityEngine.CoreModule" name="BikePrefabField" style="padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;" />
             <ui:VisualElement style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
                 <ui:Button text="Map Mixamo" display-tooltip-when-elided="true" name="MapMixamoButton" />
                 <ui:Button text="Map Character Creator 3" display-tooltip-when-elided="true" name="MapCC3Button" />
+                <ui:Button text="Map Character Creator 3 (Game Base)" display-tooltip-when-elided="true" name="MapCC3GameBaseButton" />
             </ui:VisualElement>
         </ui:GroupBox>
     </ui:VisualElement>
